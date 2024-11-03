@@ -69,6 +69,29 @@
             z-index: 40;
             display: none;
         }
+        
+        .modal-title {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            z-index: 51;
+            font-size: 1.25rem;
+        }
+
+        /* Adjust modal content to not overlap with title */
+        .modal-content {
+            margin-top: 4rem;
+        }
+
+        /* Ensure close button is above the title bar */
+        #closeModal {
+            z-index: 52;
+        }
     </style>
 </head>
 <body class="bg-gray-100 min-h-screen">
