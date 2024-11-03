@@ -84,9 +84,13 @@
         }
 
         /* Ensure close button is above the title bar */
-        #closeModal, #prevImage, #nextImage {
+        #closeModal {
             z-index: 52;
-            background: rgba(0, 0, 0, 0.9);
+        }
+        
+        #prevImage, #nextImage {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem;
         }
     </style>
 </head>
@@ -137,8 +141,8 @@
     <div id="imageModal" class="modal">
         <div id="modalTitle" class="modal-title"></div>
         <button id="closeModal" class="absolute top-4 right-4 text-white text-4xl">&times;</button>
-        <button id="prevImage" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl">&#10094;</button>
-        <button id="nextImage" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl">&#10095;</button>
+        <button id="prevImage" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl rounded">&#10094;</button>
+        <button id="nextImage" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl rounded">&#10095;</button>
         <div class="modal-content">
             <img id="modalImage" src="" alt="" />
         </div>
