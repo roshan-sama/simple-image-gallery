@@ -70,3 +70,8 @@ Then, asked it to add the image title in the modal.
 
 That's it. Done in two prompts
 
+## Roadmap
+- Focus mode to hide all UI elements when in modal view (hide title, left, right and close buttons)
+- Slideshow mode to automatically move between elements
+- Larger area for left and right buttons (maybe pair with focus mode where tapping left and right edges of screen changes images)
+
