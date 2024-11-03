@@ -116,6 +116,7 @@
 
     <!-- Modal for enlarged image -->
     <div id="imageModal" class="modal">
+        <div id="modalTitle" class="modal-title"></div>
         <button id="closeModal" class="absolute top-4 right-4 text-white text-4xl">&times;</button>
         <button id="prevImage" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl">&#10094;</button>
         <button id="nextImage" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl">&#10095;</button>
@@ -142,7 +143,8 @@
         const errorCloseBtn = document.getElementById('errorCloseBtn');
         const loadingIndicator = document.getElementById('loadingIndicator');
         const offlineIndicator = document.getElementById('offlineIndicator');
-
+        const modalTitle = document.getElementById('modalTitle');
+        
         // Service Worker Registration
         const registerServiceWorker = async () => {
             if ('serviceWorker' in navigator) {
@@ -247,6 +249,16 @@
         function updateModalImage() {
             const image = currentCollection[currentImageIndex];
             modalImage.src = `https://${fqdn}/${path}/${image}`;
+            
+            // Extract filename without extension and format it
+            const title = image.split('/').pop().split('.')[0]
+                         .replace(/[-_]/g, ' ') // Replace dashes and underscores with spaces
+                         .replace(/([A-Z])/g, ' $1') // Add space before capital letters
+                         .trim()
+                         .replace(/\b\w/g, c => c.toUpperCase()); // Capitalize first letter of each word
+            
+            modalTitle.textContent = title;
+            modalImage.alt = title;
         }
 
         function nextImageView() {
